@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickBill - Invoice Generator</title>
+    <style>
+      @media print {
+        body {
+          background-color: white !important;
+          padding: 0;
+          margin: 0;
+        }
+        /* Hide all elements except the invoice preview */
+        body > * {
+          display: none;
+        }
+        body > #root {
+          display: block;
+        }
+        #root > div > div > div:not([ref="invoiceRef"]) {
+          display: none;
+        }
+        #root > div > div > div[ref="invoiceRef"] {
+          display: block;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
